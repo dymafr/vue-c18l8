@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeRouteUpdate, onBeforeLeave } from 'vue-router';
+import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
 
 onBeforeRouteUpdate((to, from) => {
   console.log({
@@ -14,7 +14,8 @@ onBeforeRouteUpdate((to, from) => {
     from: from.path,
   });
 });
-onBeforeLeave((to, from) => {
+
+onBeforeRouteLeave((to, from) => {
   console.log({
     hook: 'Before Leave',
     to: to.path,
