@@ -1,24 +1,31 @@
 <template>
-  <div
-    class="
-      card
-      p-20
-      d-flex
-      flex-column
-      justify-content-center
-      align-items-center
-    "
-  >
+  <div class="card p-20 d-flex justify-content-center align-items-center">
     <h1>La page B</h1>
-    <div class="p-10">
-      <router-link to="/b/b1">Page B1</router-link>
-      <router-link to="/b/b2">Page B2</router-link>
-    </div>
-    <router-view></router-view>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onBeforeRouteUpdate, onBeforeLeave } from 'vue-router';
+
+onBeforeRouteUpdate((to, from) => {
+  console.log({
+    hook: 'Before Update',
+    to: to.path,
+    from: from.path,
+  });
+});
+onBeforeLeave((to, from) => {
+  console.log({
+    hook: 'Before Leave',
+    to: to.path,
+    from: from.path,
+  });
+  const response = confirm('Êtes-vous sûr de quitter la page ?');
+  if (!response) {
+    return false;
+  }
+});
+</script>
 
 <style scoped lang="scss">
 .card {

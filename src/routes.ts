@@ -1,8 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import PageA from './PageA.vue';
 import PageB from './PageB.vue';
-import PageB1 from './PageB1.vue';
-import PageB2 from './PageB2.vue';
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -14,14 +12,10 @@ export const routes: RouteRecordRaw[] = [
     component: PageA,
   },
   {
-    path: '/b',
+    path: '/b/:id?',
     component: PageB,
     beforeEnter(to, from) {
       console.log({ hook: 'Before Enter', to: to.path, from: from.path });
     },
-    children: [
-      { path: 'b1', component: PageB1 },
-      { path: 'b2', component: PageB2 },
-    ],
   },
 ];
