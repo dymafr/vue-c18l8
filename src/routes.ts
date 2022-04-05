@@ -16,6 +16,9 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/b',
     component: PageB,
+    beforeEnter(to, from) {
+      console.log({ hook: 'Before Enter', to: to.path, from: from.path });
+    },
     children: [
       { path: 'b1', component: PageB1 },
       { path: 'b2', component: PageB2 },
