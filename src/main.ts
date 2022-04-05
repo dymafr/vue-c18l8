@@ -13,6 +13,10 @@ router.beforeEach((to, from) => {
   console.log({ hook: 'Before each', to: to.path, from: from.path });
 });
 
+router.beforeResolve((to, from) => {
+  console.log({ hook: 'Before resolve', to: to.path, from: from.path });
+});
+
 const app = createApp(App);
 
 app.use(router);
