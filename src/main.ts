@@ -17,8 +17,8 @@ router.beforeResolve((to, from) => {
   console.log({ hook: 'Before resolve', to: to.path, from: from.path });
 });
 
-router.afterEach((to, from) => {
-  console.log({ hook: 'After each', to: to.path, from: from.path });
+router.afterEach((to, from, error) => {
+  console.log({ hook: 'After each', to: to.path, from: from.path, error });
 });
 
 const app = createApp(App);
