@@ -12,7 +12,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss">
-@import './assets/scss/base.scss';
+@use './assets/scss/base.scss';
 
 nav {
   background-color: var(--primary-1);
